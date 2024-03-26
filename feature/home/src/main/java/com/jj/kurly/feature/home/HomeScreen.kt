@@ -65,17 +65,17 @@ private fun LazyListScope.sections(
         when (section.info.type) {
             SectionType.VERTICAL ->
                 Section(title = title) {
-                    VerticalSection(products)
+                    VerticalSectionList(products)
                 }
 
             SectionType.HORIZONTAL ->
                 Section(title = title) {
-                    HorizontalSection(products)
+                    HorizontalSectionList(products)
                 }
 
             SectionType.GRID ->
                 Section(title = title) {
-                    GridSection(products)
+                    GridSectionList(products)
                 }
         }
     }
@@ -92,7 +92,7 @@ private fun Loading(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun VerticalSection(
+private fun VerticalSectionList(
     products: List<Product>,
     modifier: Modifier = Modifier
 ) {
@@ -100,7 +100,7 @@ private fun VerticalSection(
 }
 
 @Composable
-private fun HorizontalSection(
+private fun HorizontalSectionList(
     products: List<Product>,
     modifier: Modifier = Modifier
 ) {
@@ -108,7 +108,7 @@ private fun HorizontalSection(
 }
 
 @Composable
-private fun GridSection(
+private fun GridSectionList(
     products: List<Product>,
     modifier: Modifier = Modifier
 ) {
@@ -151,13 +151,13 @@ private fun SectionPreview() {
         isSoldOut = false
     )
     Section("title") {
-        VerticalSection(listOf(product))
+        VerticalSectionList(listOf(product))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun VerticalSectionPreview() {
+private fun VerticalSectionListPreview() {
     val product = Product(
         id = 1,
         name = "name",
@@ -166,12 +166,12 @@ private fun VerticalSectionPreview() {
         discountedPrice = 900,
         isSoldOut = false
     )
-    VerticalSection(listOf(product, product, product))
+    VerticalSectionList(listOf(product, product, product))
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun HorizontalSectionPreview() {
+private fun HorizontalSectionListPreview() {
     val product = Product(
         id = 1,
         name = "name",
@@ -180,12 +180,12 @@ private fun HorizontalSectionPreview() {
         discountedPrice = 900,
         isSoldOut = false
     )
-    HorizontalSection(listOf(product, product, product))
+    HorizontalSectionList(listOf(product, product, product))
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun GridSectionPreview() {
+private fun GridSectionListPreview() {
     val product = Product(
         id = 1,
         name = "name",
@@ -194,5 +194,5 @@ private fun GridSectionPreview() {
         discountedPrice = 900,
         isSoldOut = false
     )
-    GridSection(listOf(product, product, product))
+    GridSectionList(listOf(product, product, product))
 }
