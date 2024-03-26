@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "kurly"
 include(":app")
- 
+include(":feature:home")
