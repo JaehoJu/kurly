@@ -1,9 +1,11 @@
 package com.jj.kurly.feature.home
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -183,8 +185,17 @@ private fun HorizontalSectionList(
     onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    LazyRow {
-
+    LazyRow(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(16.dp)
+    ) {
+        items(products) {
+            HorizontalProductListItem(
+                product = it,
+                onWishButtonClick = { onWishButtonClick(it) }
+            )
+        }
     }
 }
 
@@ -208,7 +219,6 @@ fun HorizontalProductListItem(
 
     Column(
         modifier = modifier
-            .padding(16.dp)
             .width(IntrinsicSize.Min)
     ) {
         ProductImage(
@@ -439,7 +449,7 @@ private fun VerticalSectionListPreview() {
         isSoldOut = false
     )
     VerticalSectionList(
-        products = listOf(product, product, product),
+        products = listOf(product, product),
         onWishButtonClick = {}
     )
 }
