@@ -17,7 +17,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -155,32 +154,24 @@ private fun VerticalProductListItem(
     // TODO: 저장소 data 와 연결
     var isWished by rememberSaveable { mutableStateOf(false) }
 
-    // TODO: 다른 Composable 로 변경
-    ListItem(
-        overlineContent = {
-            ProductImage(
-                product = product,
-                isWished = isWished,
-                onWishButtonClick = {
-                    isWished = !isWished
-                    onWishButtonClick()
-                },
-                modifier = Modifier.aspectRatio(1.5F) // 비율 6 : 4
-            )
-        },
-        headlineContent = {
-            ProductName(
-                product = product,
-                maxLines = 1
-            )
-        },
-        supportingContent = {
-            ProductPrice(
-                product = product
-            )
-        },
-        modifier = modifier
-    )
+    Column(modifier = modifier.padding(16.dp)) {
+        ProductImage(
+            product = product,
+            isWished = isWished,
+            onWishButtonClick = {
+                isWished = !isWished
+                onWishButtonClick()
+            },
+            modifier = Modifier.aspectRatio(1.5F) // 비율 6 : 4
+        )
+        ProductName(
+            product = product,
+            maxLines = 1
+        )
+        ProductPrice(
+            product = product
+        )
+    }
 }
 
 @Composable
