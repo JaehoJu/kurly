@@ -158,77 +158,26 @@ private fun VerticalProductListItem(
     // TODO: 다른 Composable 로 변경
     ListItem(
         overlineContent = {
-            Box {
-                AsyncImage(
-                    model = product.image,
-                    contentDescription = null,
-                    contentScale = ContentScale.FillWidth,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(1.5F) // 비율 6 : 4
-                        .clip(RoundedCornerShape(6.dp))
-                )
-                IconButton(
-                    onClick = {
-                        isWished = !isWished
-                        onWishButtonClick()
-                    },
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(4.dp)
-                ) {
-                    val painter = when (isWished) {
-                        true -> painterResource(id = R.drawable.ic_btn_heart_on)
-                        false -> painterResource(id = R.drawable.ic_btn_heart_off)
-                    }
-                    Icon(
-                        painter = painter,
-                        contentDescription = null,
-                        tint = Color.Unspecified
-                    )
-                }
-            }
+            ProductImage(
+                product = product,
+                isWished = isWished,
+                onWishButtonClick = {
+                    isWished = !isWished
+                    onWishButtonClick()
+                },
+                modifier = Modifier.aspectRatio(1.5F) // 비율 6 : 4
+            )
         },
         headlineContent = {
-            Text(
-                text = product.name,
-                style = MaterialTheme.typography.bodyMedium,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+            ProductName(
+                product = product,
+                maxLines = 1
             )
         },
         supportingContent = {
-            Row {
-                if (product.discountRate < 100) {
-                    Text(
-                        text = "${product.discountRate}%",
-                        color = colorResource(id = R.color.discount_rate),
-                        fontWeight = FontWeight.Bold,
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.alignByBaseline()
-                    )
-                    Spacer(modifier = Modifier.width(2.dp))
-                    Text(
-                        text = stringResource(R.string.price, product.discountedPrice),
-                        fontWeight = FontWeight.Bold,
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.alignByBaseline()
-                    )
-                    Spacer(modifier = Modifier.width(2.dp))
-                    Text(
-                        text = stringResource(R.string.price, product.originalPrice),
-                        style = MaterialTheme.typography.bodySmall
-                            .copy(textDecoration = TextDecoration.LineThrough),
-                        modifier = Modifier.alignByBaseline()
-                    )
-                } else {
-                    Text(
-                        text = stringResource(R.string.price, product.originalPrice),
-                        fontWeight = FontWeight.Bold,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
-            }
+            ProductPrice(
+                product = product
+            )
         },
         modifier = modifier
     )
@@ -274,6 +223,96 @@ private fun Title(
         style = MaterialTheme.typography.titleLarge,
         modifier = modifier
     )
+}
+
+@Composable
+private fun ProductImage(
+    product: Product,
+    isWished: Boolean,
+    onWishButtonClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+
+    Box(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        AsyncImage(
+            model = product.image,
+            contentDescription = null,
+            contentScale = ContentScale.FillWidth,
+            modifier = Modifier
+                .fillMaxSize()
+                .clip(RoundedCornerShape(6.dp))
+        )
+        IconButton(
+            onClick = onWishButtonClick,
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(4.dp)
+        ) {
+            val painter = when (isWished) {
+                true -> painterResource(id = R.drawable.ic_btn_heart_on)
+                false -> painterResource(id = R.drawable.ic_btn_heart_off)
+            }
+            Icon(
+                painter = painter,
+                contentDescription = null,
+                tint = Color.Unspecified
+            )
+        }
+    }
+}
+
+@Composable
+private fun ProductName(
+    product: Product,
+    maxLines: Int,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = product.name,
+        style = MaterialTheme.typography.bodyMedium,
+        maxLines = maxLines,
+        overflow = TextOverflow.Ellipsis,
+        modifier = modifier
+    )
+}
+
+@Composable
+private fun ProductPrice(
+    product: Product
+) {
+    Row {
+        if (product.discountRate < 100) {
+            Text(
+                text = stringResource(R.string.discount_rate, product.discountRate),
+                color = colorResource(id = R.color.discount_rate),
+                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.alignByBaseline()
+            )
+            Spacer(modifier = Modifier.width(2.dp))
+            Text(
+                text = stringResource(R.string.price, product.discountedPrice),
+                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.alignByBaseline()
+            )
+            Spacer(modifier = Modifier.width(2.dp))
+            Text(
+                text = stringResource(R.string.price, product.originalPrice),
+                style = MaterialTheme.typography.bodySmall
+                    .copy(textDecoration = TextDecoration.LineThrough),
+                modifier = Modifier.alignByBaseline()
+            )
+        } else {
+            Text(
+                text = stringResource(R.string.price, product.originalPrice),
+                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true)
