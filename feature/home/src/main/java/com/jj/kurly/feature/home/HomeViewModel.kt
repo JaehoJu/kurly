@@ -62,8 +62,18 @@ class HomeViewModel : ViewModel() {
         )
         return flowOf(
             listOf(
-                product.copy(id = 1, discountedPrice = 100, originalPrice = 100),
-                product.copy(id = 2, discountedPrice = 89, originalPrice = 100)
+                product.copy(
+                    id = 1,
+                    image = "https://img-cf.kurly.com/shop/data/goods/1657692098340l0.jpg",
+                    discountedPrice = 100,
+                    originalPrice = 100
+                ),
+                product.copy(
+                    id = 2,
+                    image = "https://img-cf.kurly.com/shop/data/goods/1648206780555l0.jpeg",
+                    discountedPrice = 89,
+                    originalPrice = 100
+                ),
             )
         )
     }
