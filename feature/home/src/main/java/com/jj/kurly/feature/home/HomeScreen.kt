@@ -14,15 +14,21 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -43,6 +49,7 @@ internal fun HomeScreenRoute(
 
     HomeScreen(
         homeUiState = homeUiState,
+        onWishButtonClick = {}, // TODO: 구현
         modifier = modifier
     )
 }
@@ -50,6 +57,7 @@ internal fun HomeScreenRoute(
 @Composable
 internal fun HomeScreen(
     homeUiState: HomeUiState,
+    onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -62,7 +70,10 @@ internal fun HomeScreen(
 
             is HomeUiState.Success -> {
                 LazyColumn {
-                    sections(homeUiState.sections)
+                    sections(
+                        sections = homeUiState.sections,
+                        onWishButtonClick = onWishButtonClick
+                    )
                 }
             }
         }
@@ -70,7 +81,8 @@ internal fun HomeScreen(
 }
 
 private fun LazyListScope.sections(
-    sections: List<Section>
+    sections: List<Section>,
+    onWishButtonClick: (Product) -> Unit
 ) {
     items(sections) { section ->
         val title = section.info.title
@@ -79,17 +91,26 @@ private fun LazyListScope.sections(
         when (section.info.type) {
             SectionType.VERTICAL ->
                 Section(title = title) {
-                    VerticalSectionList(products)
+                    VerticalSectionList(
+                        products = products,
+                        onWishButtonClick = onWishButtonClick
+                    )
                 }
 
             SectionType.HORIZONTAL ->
                 Section(title = title) {
-                    HorizontalSectionList(products)
+                    HorizontalSectionList(
+                        products = products,
+                        onWishButtonClick = onWishButtonClick
+                    )
                 }
 
             SectionType.GRID ->
                 Section(title = title) {
-                    GridSectionList(products)
+                    GridSectionList(
+                        products = products,
+                        onWishButtonClick = onWishButtonClick
+                    )
                 }
         }
     }
@@ -108,34 +129,57 @@ private fun Loading(modifier: Modifier = Modifier) {
 @Composable
 private fun VerticalSectionList(
     products: List<Product>,
+    onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(modifier) {
-        products.forEach { VerticalProductListItem(it) }
+        products.forEach {
+            VerticalProductListItem(
+                product = it,
+                onWishButtonClick = { onWishButtonClick(it) }
+            )
+        }
     }
 }
 
 @Composable
 private fun VerticalProductListItem(
     product: Product,
+    onWishButtonClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // TODO: 저장소 data 와 연결
+    var isWished by rememberSaveable { mutableStateOf(false) }
+
+    // TODO: 다른 Composable 로 변경
     ListItem(
         overlineContent = {
             Box {
+                // TODO: 이미지 로딩
                 Text(
                     text = product.image,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .aspectRatio(1.5F) // 6 : 4
+                        .aspectRatio(1.5F) // 비율 6 : 4
                         .background(Color.LightGray)
                 )
-                Text(
-                    text = "wish",
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .background(Color.Yellow)
-                )
+                IconButton(
+                    onClick = {
+                        isWished = !isWished
+                        onWishButtonClick()
+                    },
+                    modifier = Modifier.align(Alignment.TopEnd)
+                ) {
+                    val painter = when (isWished) {
+                        true -> painterResource(id = R.drawable.ic_btn_heart_on)
+                        false -> painterResource(id = R.drawable.ic_btn_heart_off)
+                    }
+                    Icon(
+                        painter = painter,
+                        contentDescription = null,
+                        tint = Color.Unspecified
+                    )
+                }
             }
         },
         headlineContent = {
@@ -186,6 +230,7 @@ private fun VerticalProductListItem(
 @Composable
 private fun HorizontalSectionList(
     products: List<Product>,
+    onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Text(text = "horizontal", modifier = modifier)
@@ -194,6 +239,7 @@ private fun HorizontalSectionList(
 @Composable
 private fun GridSectionList(
     products: List<Product>,
+    onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Text(text = "grid", modifier = modifier)
@@ -235,7 +281,10 @@ private fun SectionPreview() {
         isSoldOut = false
     )
     Section("title") {
-        VerticalSectionList(listOf(product))
+        VerticalSectionList(
+            products = listOf(product),
+            onWishButtonClick = {}
+        )
     }
 }
 
@@ -250,7 +299,10 @@ private fun VerticalSectionListPreview() {
         discountedPrice = 900,
         isSoldOut = false
     )
-    VerticalSectionList(listOf(product, product, product))
+    VerticalSectionList(
+        products = listOf(product, product, product),
+        onWishButtonClick = {}
+    )
 }
 
 @Preview(showBackground = true)
@@ -264,7 +316,10 @@ private fun HorizontalSectionListPreview() {
         discountedPrice = 900,
         isSoldOut = false
     )
-    HorizontalSectionList(listOf(product, product, product))
+    HorizontalSectionList(
+        products = listOf(product, product, product),
+        onWishButtonClick = {}
+    )
 }
 
 @Preview(showBackground = true)
@@ -278,7 +333,10 @@ private fun GridSectionListPreview() {
         discountedPrice = 900,
         isSoldOut = false
     )
-    GridSectionList(listOf(product, product, product))
+    GridSectionList(
+        products = listOf(product, product, product),
+        onWishButtonClick = {}
+    )
 }
 
 @Preview(showBackground = true)
@@ -292,7 +350,8 @@ private fun VerticalProductListItemPreview() {
             originalPrice = 1000,
             discountedPrice = 1000,
             isSoldOut = false
-        )
+        ),
+        onWishButtonClick = {}
     )
 }
 
@@ -307,7 +366,8 @@ private fun VerticalProductListItemLongNamePreview() {
             originalPrice = 1000,
             discountedPrice = 1000,
             isSoldOut = false
-        )
+        ),
+        onWishButtonClick = {}
     )
 }
 
@@ -322,6 +382,7 @@ private fun VerticalProductListItemDiscountedPreview() {
             originalPrice = 1000,
             discountedPrice = 500,
             isSoldOut = false
-        )
+        ),
+        onWishButtonClick = {}
     )
 }
