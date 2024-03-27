@@ -3,15 +3,18 @@ package com.jj.kurly.feature.home
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -168,7 +171,7 @@ private fun VerticalProductListItem(
             product = product,
             maxLines = 1
         )
-        ProductPrice(
+        ProductPriceOneLine(
             product = product
         )
     }
@@ -180,7 +183,9 @@ private fun HorizontalSectionList(
     onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Text(text = "horizontal", modifier = modifier)
+    LazyRow {
+
+    }
 }
 
 @Composable
@@ -190,6 +195,39 @@ private fun GridSectionList(
     modifier: Modifier = Modifier
 ) {
     Text(text = "grid", modifier = modifier)
+}
+
+@Composable
+fun HorizontalProductListItem(
+    product: Product,
+    onWishButtonClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    // TODO: 저장소 data 와 연결
+    var isWished by rememberSaveable { mutableStateOf(false) }
+
+    Column(
+        modifier = modifier
+            .padding(16.dp)
+            .width(IntrinsicSize.Min)
+    ) {
+        ProductImage(
+            product = product,
+            isWished = isWished,
+            onWishButtonClick = {
+                isWished = !isWished
+                onWishButtonClick()
+            },
+            modifier = Modifier.size(150.dp, 200.dp)
+        )
+        ProductName(
+            product = product,
+            maxLines = 2
+        )
+        ProductPriceTwoLines(
+            product = product
+        )
+    }
 }
 
 @Composable
@@ -270,13 +308,14 @@ private fun ProductName(
 }
 
 @Composable
-private fun ProductPrice(
-    product: Product
+private fun ProductPriceOneLine(
+    product: Product,
+    modifier: Modifier = Modifier
 ) {
     val isDiscounted = product.discountedPrice != null
             && product.discountedPrice < product.originalPrice
 
-    Row {
+    Row(modifier = modifier) {
         if (isDiscounted) {
             DiscountRate(
                 discountRate = product.discountRate,
@@ -284,7 +323,6 @@ private fun ProductPrice(
             )
             Spacer(modifier = Modifier.width(2.dp))
         }
-
         SalePrice(
             salePrice = product.discountedPrice ?: product.originalPrice,
             modifier = Modifier.alignByBaseline()
@@ -294,6 +332,36 @@ private fun ProductPrice(
             OriginalPrice(
                 originalPrice = product.originalPrice,
                 modifier = Modifier.alignByBaseline()
+            )
+        }
+    }
+}
+
+@Composable
+private fun ProductPriceTwoLines(
+    product: Product,
+    modifier: Modifier = Modifier
+) {
+    val isDiscounted = product.discountedPrice != null
+            && product.discountedPrice < product.originalPrice
+
+    Column(modifier = modifier) {
+        Row {
+            if (isDiscounted) {
+                DiscountRate(
+                    discountRate = product.discountRate,
+                    modifier = Modifier.alignByBaseline()
+                )
+                Spacer(modifier = Modifier.width(2.dp))
+            }
+            SalePrice(
+                salePrice = product.discountedPrice ?: product.originalPrice,
+                modifier = Modifier.alignByBaseline()
+            )
+        }
+        if (isDiscounted) {
+            OriginalPrice(
+                originalPrice = product.originalPrice
             )
         }
     }
@@ -335,6 +403,7 @@ private fun OriginalPrice(
         text = stringResource(R.string.price, originalPrice),
         style = MaterialTheme.typography.bodySmall
             .copy(textDecoration = TextDecoration.LineThrough),
+        color = Color.Gray,
         modifier = modifier
     )
 }
@@ -415,10 +484,10 @@ private fun VerticalProductListItemPreview() {
     VerticalProductListItem(
         product = Product(
             id = 1,
-            name = "name",
+            name = "name name name name name name name name name name name name",
             image = "image",
             originalPrice = 1000,
-            discountedPrice = 1000,
+            discountedPrice = 500,
             isSoldOut = false
         ),
         onWishButtonClick = {}
@@ -427,14 +496,14 @@ private fun VerticalProductListItemPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun VerticalProductListItemLongNamePreview() {
-    VerticalProductListItem(
+private fun HorizontalProductListItemPreview() {
+    HorizontalProductListItem(
         product = Product(
             id = 1,
             name = "name name name name name name name name name name name name",
             image = "image",
             originalPrice = 1000,
-            discountedPrice = 1000,
+            discountedPrice = 500,
             isSoldOut = false
         ),
         onWishButtonClick = {}
@@ -443,8 +512,23 @@ private fun VerticalProductListItemLongNamePreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun VerticalProductListItemDiscountedPreview() {
-    VerticalProductListItem(
+private fun ProductPriceOneLinePreview() {
+    ProductPriceOneLine(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = null,
+            isSoldOut = false
+        )
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ProductPriceOneLineDiscountedPreview() {
+    ProductPriceOneLine(
         product = Product(
             id = 1,
             name = "name",
@@ -452,7 +536,36 @@ private fun VerticalProductListItemDiscountedPreview() {
             originalPrice = 1000,
             discountedPrice = 500,
             isSoldOut = false
-        ),
-        onWishButtonClick = {}
+        )
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ProductPriceTwoLinesLinePreview() {
+    ProductPriceTwoLines(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = null,
+            isSoldOut = false
+        )
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ProductPriceTwoLinesDiscountedPreview() {
+    ProductPriceTwoLines(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 500,
+            isSoldOut = false
+        )
     )
 }
