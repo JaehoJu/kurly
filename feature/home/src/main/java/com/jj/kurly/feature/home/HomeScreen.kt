@@ -205,7 +205,20 @@ private fun GridSectionList(
     onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Text(text = "grid", modifier = modifier)
+    // row 2, col 3
+    val chunkedProducts = products.take(6).chunked(3)
+    Column(modifier = modifier) {
+        chunkedProducts.forEach { products ->
+            Row {
+                products.forEach {
+                    HorizontalProductListItem(
+                        product = it,
+                        onWishButtonClick = { onWishButtonClick(it) }
+                    )
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -483,7 +496,24 @@ private fun GridSectionListPreview() {
         isSoldOut = false
     )
     GridSectionList(
-        products = listOf(product, product, product),
+        products = List(6) { product },
+        onWishButtonClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun GridSectionListOverSizePreview() {
+    val product = Product(
+        id = 1,
+        name = "name",
+        image = "image",
+        originalPrice = 1000,
+        discountedPrice = 900,
+        isSoldOut = false
+    )
+    GridSectionList(
+        products = List(100) { product },
         onWishButtonClick = {}
     )
 }
