@@ -19,6 +19,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -96,6 +97,8 @@ private fun LazyListScope.sections(
             section = section,
             onWishButtonClick = onWishButtonClick
         )
+
+        Divider(modifier = Modifier.padding(horizontal = 16.dp))
     }
 }
 
@@ -280,7 +283,7 @@ private fun Section(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(vertical = 24.dp)) {
         Title(text = title)
         content()
     }
@@ -294,7 +297,7 @@ private fun Title(
     Text(
         text = text,
         style = MaterialTheme.typography.titleLarge,
-        modifier = modifier
+        modifier = modifier.padding(16.dp)
     )
 }
 
@@ -319,9 +322,7 @@ private fun ProductImage(
         )
         IconButton(
             onClick = onWishButtonClick,
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(4.dp)
+            modifier = Modifier.align(Alignment.TopEnd)
         ) {
             val painter = when (isWished) {
                 true -> painterResource(id = R.drawable.ic_btn_heart_on)
