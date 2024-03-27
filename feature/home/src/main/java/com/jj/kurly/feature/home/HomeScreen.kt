@@ -17,6 +17,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -93,34 +96,10 @@ private fun LazyListScope.sections(
     onWishButtonClick: (Product) -> Unit
 ) {
     items(sections) { section ->
-        val title = section.info.title
-        val products = section.products
-
-        when (section.info.type) {
-            SectionType.VERTICAL ->
-                Section(title = title) {
-                    VerticalSectionList(
-                        products = products,
-                        onWishButtonClick = onWishButtonClick
-                    )
-                }
-
-            SectionType.HORIZONTAL ->
-                Section(title = title) {
-                    HorizontalSectionList(
-                        products = products,
-                        onWishButtonClick = onWishButtonClick
-                    )
-                }
-
-            SectionType.GRID ->
-                Section(title = title) {
-                    GridSectionList(
-                        products = products,
-                        onWishButtonClick = onWishButtonClick
-                    )
-                }
-        }
+        Section(
+            section = section,
+            onWishButtonClick = onWishButtonClick
+        )
     }
 }
 
@@ -250,6 +229,41 @@ fun HorizontalProductListItem(
         ProductPriceTwoLines(
             product = product
         )
+    }
+}
+
+@Composable
+private fun Section(
+    section: Section,
+    onWishButtonClick: (Product) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val title = section.info.title
+    val products = section.products
+
+    Section(
+        title = title,
+        modifier = modifier
+    ) {
+        when (section.info.type) {
+            SectionType.VERTICAL ->
+                VerticalSectionList(
+                    products = products,
+                    onWishButtonClick = onWishButtonClick
+                )
+
+            SectionType.HORIZONTAL ->
+                HorizontalSectionList(
+                    products = products,
+                    onWishButtonClick = onWishButtonClick
+                )
+
+            SectionType.GRID ->
+                GridSectionList(
+                    products = products,
+                    onWishButtonClick = onWishButtonClick
+                )
+        }
     }
 }
 
