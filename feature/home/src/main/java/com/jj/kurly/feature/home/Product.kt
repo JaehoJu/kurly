@@ -5,9 +5,11 @@ data class Product(
     val name: String,
     val image: String,
     val originalPrice: Int,
-    val discountedPrice: Int,
+    val discountedPrice: Int?,
     val isSoldOut: Boolean
 ) {
 
-    val discountRate: Int = discountedPrice * 100 / originalPrice
+    val discountRate: Int = discountedPrice?.let {
+        (originalPrice - it) * 100 / originalPrice
+    } ?: 0
 }

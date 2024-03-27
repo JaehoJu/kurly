@@ -282,37 +282,70 @@ private fun ProductName(
 private fun ProductPrice(
     product: Product
 ) {
+    val isDiscounted = product.discountedPrice != null
+            && product.discountedPrice < product.originalPrice
+
     Row {
-        if (product.discountRate < 100) {
-            Text(
-                text = stringResource(R.string.discount_rate, product.discountRate),
-                color = colorResource(id = R.color.discount_rate),
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyMedium,
+        if (isDiscounted) {
+            DiscountRate(
+                discountRate = product.discountRate,
                 modifier = Modifier.alignByBaseline()
             )
             Spacer(modifier = Modifier.width(2.dp))
-            Text(
-                text = stringResource(R.string.price, product.discountedPrice),
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.alignByBaseline()
-            )
+        }
+
+        SalePrice(
+            salePrice = product.discountedPrice ?: product.originalPrice,
+            modifier = Modifier.alignByBaseline()
+        )
+        if (isDiscounted) {
             Spacer(modifier = Modifier.width(2.dp))
-            Text(
-                text = stringResource(R.string.price, product.originalPrice),
-                style = MaterialTheme.typography.bodySmall
-                    .copy(textDecoration = TextDecoration.LineThrough),
+            OriginalPrice(
+                originalPrice = product.originalPrice,
                 modifier = Modifier.alignByBaseline()
-            )
-        } else {
-            Text(
-                text = stringResource(R.string.price, product.originalPrice),
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyMedium
             )
         }
     }
+}
+
+@Composable
+private fun DiscountRate(
+    discountRate: Int,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = stringResource(R.string.discount_rate, discountRate),
+        color = colorResource(id = R.color.discount_rate),
+        fontWeight = FontWeight.Bold,
+        style = MaterialTheme.typography.bodyMedium,
+        modifier = modifier
+    )
+}
+
+@Composable
+private fun SalePrice(
+    salePrice: Int,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = stringResource(R.string.price, salePrice),
+        fontWeight = FontWeight.Bold,
+        style = MaterialTheme.typography.bodyMedium,
+        modifier = modifier
+    )
+}
+
+@Composable
+private fun OriginalPrice(
+    originalPrice: Int,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = stringResource(R.string.price, originalPrice),
+        style = MaterialTheme.typography.bodySmall
+            .copy(textDecoration = TextDecoration.LineThrough),
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
