@@ -12,14 +12,10 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -172,7 +168,8 @@ private fun HorizontalSectionList(
         items(products) {
             HorizontalProductListItem(
                 product = it,
-                onWishButtonClick = { onWishButtonClick(it) }
+                onWishButtonClick = { onWishButtonClick(it) },
+                modifier = Modifier.width(150.dp)
             )
         }
     }
@@ -184,16 +181,26 @@ private fun GridSectionList(
     onWishButtonClick: (Product) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // row 2, col 3
-    val chunkedProducts = products.take(6).chunked(3)
-    Column(modifier = modifier) {
+    val row = 2
+    val col = 3
+    val chunkedProducts = products.take(row * col).chunked(col)
+    Column(
+        modifier = modifier.padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         chunkedProducts.forEach { products ->
-            Row {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
                 products.forEach {
                     HorizontalProductListItem(
                         product = it,
-                        onWishButtonClick = { onWishButtonClick(it) }
+                        onWishButtonClick = { onWishButtonClick(it) },
+                        modifier = Modifier.weight(1f)
                     )
+                }
+                repeat(col - products.size) {
+                    Box(modifier = Modifier.weight(1f))
                 }
             }
         }
@@ -220,7 +227,7 @@ fun HorizontalProductListItem(
                 isWished = !isWished
                 onWishButtonClick()
             },
-            modifier = Modifier.size(150.dp, 200.dp)
+            modifier = Modifier.aspectRatio(0.75F) // 비율 150 : 200
         )
         ProductName(
             product = product,
@@ -517,6 +524,23 @@ private fun GridSectionListPreview() {
 
 @Preview(showBackground = true)
 @Composable
+private fun GridSectionListUnderSizePreview() {
+    val product = Product(
+        id = 1,
+        name = "name",
+        image = "image",
+        originalPrice = 1000,
+        discountedPrice = 900,
+        isSoldOut = false
+    )
+    GridSectionList(
+        products = List(5) { product },
+        onWishButtonClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
 private fun GridSectionListOverSizePreview() {
     val product = Product(
         id = 1,
@@ -560,7 +584,8 @@ private fun HorizontalProductListItemPreview() {
             discountedPrice = 500,
             isSoldOut = false
         ),
-        onWishButtonClick = {}
+        onWishButtonClick = {},
+        modifier = Modifier.width(150.dp)
     )
 }
 
