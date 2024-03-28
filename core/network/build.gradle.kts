@@ -1,12 +1,13 @@
 plugins {
     kotlin("kapt")
+    kotlin("plugin.serialization") version "1.9.21"
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.googleDaggerHiltAndroid)
 }
 
 android {
-    namespace = "com.jj.kurly.core.data"
+    namespace = "com.jj.kurly.core.network"
     compileSdk = 34
 
     defaultConfig {
@@ -36,12 +37,14 @@ android {
 
 dependencies {
 
-    implementation(project(":core:model"))
-    implementation(project(":core:network"))
+    implementation(project(":core:mockserver"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.retrofit)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.converter.kotlinx.serialization)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -13,5 +13,7 @@ data class Product(
         (originalPrice - it) * 100 / originalPrice
     } ?: 0
 
-    val isDiscounted = discountedPrice != null && discountedPrice < originalPrice
+    val isDiscounted = discountedPrice?.let {
+        it < originalPrice
+    } ?: false
 }

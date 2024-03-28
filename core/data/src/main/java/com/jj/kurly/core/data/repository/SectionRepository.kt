@@ -8,5 +8,5 @@ interface SectionRepository {
 
     fun getSectionInfos(): Flow<List<SectionInfo>>
 
-    fun getProducts(url: String): Flow<List<Product>>
+    fun getProducts(sectionId: Int): Flow<List<Product>>
 }

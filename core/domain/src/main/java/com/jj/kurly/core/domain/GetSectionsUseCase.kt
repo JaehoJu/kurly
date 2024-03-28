@@ -21,7 +21,7 @@ class GetSectionsUseCase @Inject constructor(
                     it.map { sectionInfo ->
                         Section(
                             info = sectionInfo,
-                            products = sectionRepository.getProducts(sectionInfo.url).first()
+                            products = sectionRepository.getProducts(sectionInfo.id).first()
                         )
                     }
                 )

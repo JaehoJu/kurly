@@ -46,7 +46,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.jj.kurly.core.model.Product
 import com.jj.kurly.core.model.Section
@@ -277,6 +276,8 @@ private fun Section(
                     products = products,
                     onWishButtonClick = onWishButtonClick
                 )
+
+            SectionType.UNKNOWN -> Unit
         }
     }
 }
