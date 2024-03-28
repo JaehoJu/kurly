@@ -26,9 +26,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,6 +47,7 @@ import coil.compose.AsyncImage
 import com.jj.kurly.core.model.Product
 import com.jj.kurly.core.model.Section
 import com.jj.kurly.core.model.SectionType
+import com.jj.kurly.core.model.WishableProduct
 
 @Composable
 internal fun HomeScreenRoute(
@@ -60,7 +58,7 @@ internal fun HomeScreenRoute(
 
     HomeScreen(
         homeUiState = homeUiState,
-        onWishButtonClick = {}, // TODO: 구현
+        onWishButtonClick = viewModel::wishProduct,
         modifier = modifier
     )
 }
@@ -68,7 +66,7 @@ internal fun HomeScreenRoute(
 @Composable
 internal fun HomeScreen(
     homeUiState: HomeUiState,
-    onWishButtonClick: (Product) -> Unit,
+    onWishButtonClick: (Int, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -93,7 +91,7 @@ internal fun HomeScreen(
 
 private fun LazyListScope.sections(
     sections: List<Section>,
-    onWishButtonClick: (Product) -> Unit
+    onWishButtonClick: (Int, Boolean) -> Unit
 ) {
     items(sections) { section ->
         Section(
@@ -117,15 +115,15 @@ private fun Loading(modifier: Modifier = Modifier) {
 
 @Composable
 private fun VerticalSectionList(
-    products: List<Product>,
-    onWishButtonClick: (Product) -> Unit,
+    products: List<WishableProduct>,
+    onWishButtonClick: (Int, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(modifier) {
-        products.forEach {
+        products.forEach { wishableProduct ->
             VerticalProductListItem(
-                product = it,
-                onWishButtonClick = { onWishButtonClick(it) }
+                wishableProduct = wishableProduct,
+                onWishButtonClick = { onWishButtonClick(wishableProduct.product.id, it) }
             )
         }
     }
@@ -133,37 +131,30 @@ private fun VerticalSectionList(
 
 @Composable
 private fun VerticalProductListItem(
-    product: Product,
-    onWishButtonClick: () -> Unit,
+    wishableProduct: WishableProduct,
+    onWishButtonClick: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // TODO: 저장소 data 와 연결
-    var isWished by rememberSaveable { mutableStateOf(false) }
-
     Column(modifier = modifier.padding(16.dp)) {
         ProductImage(
-            product = product,
-            isWished = isWished,
-            onWishButtonClick = {
-                isWished = !isWished
-                onWishButtonClick()
-            },
+            wishableProduct = wishableProduct,
+            onWishButtonClick = onWishButtonClick,
             modifier = Modifier.aspectRatio(1.5F) // 비율 6 : 4
         )
         ProductName(
-            product = product,
+            product = wishableProduct.product,
             maxLines = 1
         )
         ProductPriceOneLine(
-            product = product
+            product = wishableProduct.product
         )
     }
 }
 
 @Composable
 private fun HorizontalSectionList(
-    products: List<Product>,
-    onWishButtonClick: (Product) -> Unit,
+    products: List<WishableProduct>,
+    onWishButtonClick: (Int, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyRow(
@@ -171,10 +162,10 @@ private fun HorizontalSectionList(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(16.dp)
     ) {
-        items(products) {
+        items(products) { wishableProduct ->
             HorizontalProductListItem(
-                product = it,
-                onWishButtonClick = { onWishButtonClick(it) },
+                wishableProduct = wishableProduct,
+                onWishButtonClick = { onWishButtonClick(wishableProduct.product.id, it) },
                 modifier = Modifier.width(150.dp)
             )
         }
@@ -183,8 +174,8 @@ private fun HorizontalSectionList(
 
 @Composable
 private fun GridSectionList(
-    products: List<Product>,
-    onWishButtonClick: (Product) -> Unit,
+    products: List<WishableProduct>,
+    onWishButtonClick: (Int, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val row = 2
@@ -198,10 +189,10 @@ private fun GridSectionList(
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                products.forEach {
+                products.forEach { wishableProduct ->
                     HorizontalProductListItem(
-                        product = it,
-                        onWishButtonClick = { onWishButtonClick(it) },
+                        wishableProduct = wishableProduct,
+                        onWishButtonClick = { onWishButtonClick(wishableProduct.product.id, it) },
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -215,32 +206,25 @@ private fun GridSectionList(
 
 @Composable
 fun HorizontalProductListItem(
-    product: Product,
-    onWishButtonClick: () -> Unit,
+    wishableProduct: WishableProduct,
+    onWishButtonClick: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // TODO: 저장소 data 와 연결
-    var isWished by rememberSaveable { mutableStateOf(false) }
-
     Column(
         modifier = modifier
             .width(IntrinsicSize.Min)
     ) {
         ProductImage(
-            product = product,
-            isWished = isWished,
-            onWishButtonClick = {
-                isWished = !isWished
-                onWishButtonClick()
-            },
+            wishableProduct = wishableProduct,
+            onWishButtonClick = onWishButtonClick,
             modifier = Modifier.aspectRatio(0.75F) // 비율 150 : 200
         )
         ProductName(
-            product = product,
+            product = wishableProduct.product,
             maxLines = 2
         )
         ProductPriceTwoLines(
-            product = product
+            product = wishableProduct.product
         )
     }
 }
@@ -248,7 +232,7 @@ fun HorizontalProductListItem(
 @Composable
 private fun Section(
     section: Section,
-    onWishButtonClick: (Product) -> Unit,
+    onWishButtonClick: (Int, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val title = section.info.title
@@ -308,17 +292,15 @@ private fun Title(
 
 @Composable
 private fun ProductImage(
-    product: Product,
-    isWished: Boolean,
-    onWishButtonClick: () -> Unit,
+    wishableProduct: WishableProduct,
+    onWishButtonClick: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
-
     Box(
         modifier = modifier.fillMaxWidth()
     ) {
         AsyncImage(
-            model = product.image,
+            model = wishableProduct.product.image,
             contentDescription = null,
             contentScale = ContentScale.FillWidth,
             modifier = Modifier
@@ -326,10 +308,10 @@ private fun ProductImage(
                 .clip(RoundedCornerShape(6.dp))
         )
         IconButton(
-            onClick = onWishButtonClick,
+            onClick = { onWishButtonClick(!wishableProduct.isWished) },
             modifier = Modifier.align(Alignment.TopEnd)
         ) {
-            val painter = when (isWished) {
+            val painter = when (wishableProduct.isWished) {
                 true -> painterResource(id = R.drawable.ic_btn_heart_on)
                 false -> painterResource(id = R.drawable.ic_btn_heart_off)
             }
@@ -455,18 +437,21 @@ private fun OriginalPrice(
 @Preview(showBackground = true)
 @Composable
 private fun SectionPreview() {
-    val product = Product(
-        id = 1,
-        name = "name",
-        image = "image",
-        originalPrice = 1000,
-        discountedPrice = 900,
-        isSoldOut = false
+    val product = WishableProduct(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 900,
+            isSoldOut = false
+        ),
+        isWished = false
     )
     Section("title") {
         VerticalSectionList(
             products = listOf(product),
-            onWishButtonClick = {}
+            onWishButtonClick = { _, _ -> }
         )
     }
 }
@@ -474,85 +459,100 @@ private fun SectionPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun VerticalSectionListPreview() {
-    val product = Product(
-        id = 1,
-        name = "name",
-        image = "image",
-        originalPrice = 1000,
-        discountedPrice = 900,
-        isSoldOut = false
+    val product = WishableProduct(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 900,
+            isSoldOut = false
+        ),
+        isWished = false
     )
     VerticalSectionList(
         products = listOf(product, product),
-        onWishButtonClick = {}
+        onWishButtonClick = { _, _ -> }
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun HorizontalSectionListPreview() {
-    val product = Product(
-        id = 1,
-        name = "name",
-        image = "image",
-        originalPrice = 1000,
-        discountedPrice = 900,
-        isSoldOut = false
+    val product = WishableProduct(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 900,
+            isSoldOut = false
+        ),
+        isWished = false
     )
     HorizontalSectionList(
         products = listOf(product, product, product),
-        onWishButtonClick = {}
+        onWishButtonClick = { _, _ -> }
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun GridSectionListPreview() {
-    val product = Product(
-        id = 1,
-        name = "name",
-        image = "image",
-        originalPrice = 1000,
-        discountedPrice = 900,
-        isSoldOut = false
+    val product = WishableProduct(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 900,
+            isSoldOut = false
+        ),
+        isWished = false
     )
     GridSectionList(
         products = List(6) { product },
-        onWishButtonClick = {}
+        onWishButtonClick = { _, _ -> }
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun GridSectionListUnderSizePreview() {
-    val product = Product(
-        id = 1,
-        name = "name",
-        image = "image",
-        originalPrice = 1000,
-        discountedPrice = 900,
-        isSoldOut = false
+    val product = WishableProduct(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 900,
+            isSoldOut = false
+        ),
+        isWished = false
     )
     GridSectionList(
         products = List(5) { product },
-        onWishButtonClick = {}
+        onWishButtonClick = { _, _ -> }
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun GridSectionListOverSizePreview() {
-    val product = Product(
-        id = 1,
-        name = "name",
-        image = "image",
-        originalPrice = 1000,
-        discountedPrice = 900,
-        isSoldOut = false
+    val product = WishableProduct(
+        product = Product(
+            id = 1,
+            name = "name",
+            image = "image",
+            originalPrice = 1000,
+            discountedPrice = 900,
+            isSoldOut = false
+        ),
+        isWished = false
     )
     GridSectionList(
         products = List(100) { product },
-        onWishButtonClick = {}
+        onWishButtonClick = { _, _ -> }
     )
 }
 
@@ -560,13 +560,16 @@ private fun GridSectionListOverSizePreview() {
 @Composable
 private fun VerticalProductListItemPreview() {
     VerticalProductListItem(
-        product = Product(
-            id = 1,
-            name = "name name name name name name name name name name name name",
-            image = "image",
-            originalPrice = 1000,
-            discountedPrice = 500,
-            isSoldOut = false
+        wishableProduct = WishableProduct(
+            product = Product(
+                id = 1,
+                name = "name name name name name name name name name name name name",
+                image = "image",
+                originalPrice = 1000,
+                discountedPrice = 500,
+                isSoldOut = false
+            ),
+            isWished = false
         ),
         onWishButtonClick = {}
     )
@@ -576,13 +579,16 @@ private fun VerticalProductListItemPreview() {
 @Composable
 private fun HorizontalProductListItemPreview() {
     HorizontalProductListItem(
-        product = Product(
-            id = 1,
-            name = "name name name name name name name name name name name name",
-            image = "image",
-            originalPrice = 1000,
-            discountedPrice = 500,
-            isSoldOut = false
+        wishableProduct = WishableProduct(
+            product = Product(
+                id = 1,
+                name = "name name name name name name name name name name name name",
+                image = "image",
+                originalPrice = 1000,
+                discountedPrice = 500,
+                isSoldOut = false
+            ),
+            isWished = false
         ),
         onWishButtonClick = {},
         modifier = Modifier.width(150.dp)

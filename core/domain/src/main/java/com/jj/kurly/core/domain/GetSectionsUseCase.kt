@@ -10,7 +10,8 @@ import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 class GetSectionsUseCase @Inject constructor(
-    private val sectionRepository: SectionRepository
+    private val sectionRepository: SectionRepository,
+    private val getWishableProductsUseCase: GetWishableProductsUseCase
 ) {
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -21,7 +22,7 @@ class GetSectionsUseCase @Inject constructor(
                     it.map { sectionInfo ->
                         Section(
                             info = sectionInfo,
-                            products = sectionRepository.getProducts(sectionInfo.id).first()
+                            products = getWishableProductsUseCase(sectionInfo.id).first()
                         )
                     }
                 )
