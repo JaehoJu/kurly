@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "id": 5070319,
+      "name": "국산 블루베리 100g (특)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038519929l0.jpeg",
+      "originalPrice": 7900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5067331,
+      "name": "[KF365] 삼겹살 대패 1kg (냉동)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653040211228l0.jpg",
+      "originalPrice": 11900,
+      "discountedPrice": 8400,
+      "isSoldOut": false
+    },
+    {
+      "id": 5000070,
+      "name": "친환경 당근 500g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653037915850l0.jpeg",
+      "originalPrice": 3390,
+      "isSoldOut": false
+    }
+  ]
+}

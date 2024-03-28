@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "id": 5063596,
+      "name": "[그래놀라 하우스] 그래놀라 4종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653035941542l0.jpg",
+      "originalPrice": 13500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5071172,
+      "name": "[KF365] 무라벨 플레인 탄산수 350mL 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637154010575l0.jpg",
+      "originalPrice": 3500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5090273,
+      "name": "[자연실록] 무항생제 닭 다리살 (정육) 500g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/163842816248l0.jpg",
+      "originalPrice": 7900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5062642,
+      "name": "냉동 블루베리 1kg (칠레산)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653035681281l0.jpeg",
+      "originalPrice": 10800,
+      "isSoldOut": false
+    },
+    {
+      "id": 5074265,
+      "name": "[KF365] 3겹 천연펄프 화장지 (27m X 30롤)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/165305144649l0.jpg",
+      "originalPrice": 12000,
+      "discountedPrice": 10900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5115211,
+      "name": "[라라스윗] 생우유 모나카 (140ml * 4개입)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653040755178l0.jpg",
+      "originalPrice": 9400,
+      "isSoldOut": false
+    }
+  ]
+}

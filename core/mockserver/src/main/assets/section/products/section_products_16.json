@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "id": 5043336,
+      "name": "[포비베이글] 크림치즈 8종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653034267999l0.jpg",
+      "originalPrice": 9000,
+      "discountedPrice": 8100,
+      "isSoldOut": false
+    },
+    {
+      "id": 5038168,
+      "name": "[스타벅스] by 네스프레소 호환 캡슐 10종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1563948119225l0.jpg",
+      "originalPrice": 7990,
+      "isSoldOut": false
+    },
+    {
+      "id": 5052014,
+      "name": "[창억] 찰떡 3종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637629909531l0.jpeg",
+      "originalPrice": 7500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5038092,
+      "name": "[태우한우] 1+ 한우 절단국거리용 200g (냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038501867l0.jpeg",
+      "originalPrice": 12800,
+      "isSoldOut": false
+    },
+    {
+      "id": 5025888,
+      "name": "[숭의가든] 한돈 목살 양념 구이",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648207341123l0.jpeg",
+      "originalPrice": 14900,
+      "discountedPrice": 14150,
+      "isSoldOut": false
+    },
+    {
+      "id": 5155731,
+      "name": "[탄단지] 소스 흠뻑빠진 닭가슴살 5종 (4개입)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1657775325570l0.jpg",
+      "originalPrice": 2600,
+      "isSoldOut": false
+    },
+    {
+      "id": 5070637,
+      "name": "[산메촌] 메밀 물막국수(2인분)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/162097789974l0.jpg",
+      "originalPrice": 9900,
+      "discountedPrice": 8400,
+      "isSoldOut": false
+    },
+    {
+      "id": 5072939,
+      "name": "[모노키친] 롱롱 돈까스",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653034484643l0.jpeg",
+      "originalPrice": 7400,
+      "isSoldOut": false
+    }
+  ]
+}

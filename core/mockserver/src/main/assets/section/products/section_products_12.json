@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "id": 5053098,
+      "name": "[하이트진로] 석수 (500mL X 20개)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637154051836l0.jpg",
+      "originalPrice": 3600,
+      "isSoldOut": false
+    },
+    {
+      "id": 5006176,
+      "name": "[일상味소] 다짐육 200g (냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1646906524635l0.jpg",
+      "originalPrice": 7500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5128316,
+      "name": "[햇반/쿡반] 노릇노릇 구운 주먹밥 800g 5종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653040583683l0.jpeg",
+      "originalPrice": 10980,
+      "isSoldOut": false
+    },
+    {
+      "id": 5054066,
+      "name": "[이목] 무항생제 소고기 다짐육 200g (냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637928087765l0.jpg",
+      "originalPrice": 9900,
+      "discountedPrice": 9250,
+      "isSoldOut": false
+    },
+    {
+      "id": 5051177,
+      "name": "[그로서리서울] 배부른 현미 곤약밥 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653036706421l0.jpg",
+      "originalPrice": 2600,
+      "isSoldOut": false
+    },
+    {
+      "id": 5031421,
+      "name": "[숭의가든] 옛날 소 불고기",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038616850l0.jpeg",
+      "originalPrice": 14400,
+      "isSoldOut": false
+    },
+    {
+      "id": 5012569,
+      "name": "MY FIRST 처음 만나는 모닝롤",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648210550708l0.jpeg",
+      "originalPrice": 4500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5026449,
+      "name": "[KF365] 호박고구마 800g/봉",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637154415267l0.jpg",
+      "originalPrice": 4780,
+      "isSoldOut": false
+    },
+    {
+      "id": 5053979,
+      "name": "[경복궁 BLACK] 사골 도가니탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653039845825l0.jpeg",
+      "originalPrice": 11000,
+      "discountedPrice": 9900,
+      "isSoldOut": false
+    }
+  ]
+}

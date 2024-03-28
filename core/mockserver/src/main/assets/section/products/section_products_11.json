@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": 5026771,
+      "name": "[어게인리프레쉬] 샐러드 7종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653039633578l0.jpeg",
+      "originalPrice": 5900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5027321,
+      "name": "유명산지 천도복숭아 1.2kg (특)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1592906805156l0.jpg",
+      "originalPrice": 9900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5027230,
+      "name": "GAP 유명산지 머스크 멜론 1.6kg",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637922854753l0.jpeg",
+      "originalPrice": 10900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5009669,
+      "name": "[샐러드판다] 병 샐러드 12종 (리뉴얼)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653354392116l0.jpg",
+      "originalPrice": 6900,
+      "discountedPrice": 6210,
+      "isSoldOut": false
+    },
+    {
+      "id": 5041697,
+      "name": "[밀클레버] 미니붕어빵 4종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648202670772l0.jpg",
+      "originalPrice": 4900,
+      "isSoldOut": false
+    }
+  ]
+}

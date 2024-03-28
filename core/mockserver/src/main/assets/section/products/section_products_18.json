@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "id": 5155301,
+      "name": "[다향오리] 훈제오리 슬라이스 150g (3개입)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1657692098340l0.jpg",
+      "originalPrice": 9900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5029436,
+      "name": "[KF365] 완숙토마토 2kg",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637936287581l0.jpg",
+      "originalPrice": 10900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5109945,
+      "name": "[도제] 촉촉한 생식빵 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1640582092588l0.jpg",
+      "originalPrice": 6300,
+      "discountedPrice": 5985,
+      "isSoldOut": false
+    },
+    {
+      "id": 5077677,
+      "name": "[이목] 국내산 소고기 양지 국거리용 200g 2종 (냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1625730576125l0.jpg",
+      "originalPrice": 8900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5088308,
+      "name": "[시골보쌈과 감자옹심이] 감자 옹심이 칼국수 (2인분)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1634633589756l0.jpg",
+      "originalPrice": 9900,
+      "discountedPrice": 8910,
+      "isSoldOut": false
+    },
+    {
+      "id": 5068729,
+      "name": "[귤림원] 당도선별 GAP 하우스 감귤 1kg",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038898692l0.jpeg",
+      "originalPrice": 13800,
+      "discountedPrice": 12834,
+      "isSoldOut": false
+    },
+    {
+      "id": 5036174,
+      "name": "[라엘] 순면 커버 생리대 7종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637925725600l0.jpeg",
+      "originalPrice": 5000,
+      "discountedPrice": 5000,
+      "isSoldOut": false
+    }
+  ]
+}

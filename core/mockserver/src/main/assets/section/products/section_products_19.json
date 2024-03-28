@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": 5004411,
+      "name": "MY FIRST 처음 만나는 식빵",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1649151123525l0.jpg",
+      "originalPrice": 4900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5073094,
+      "name": "[에머이] 소고기 쌀국수 키트 (2인분)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/163792233013l0.jpg",
+      "originalPrice": 11900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5051972,
+      "name": "[애슐리] 오리지널 통살치킨",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648208560207l0.jpeg",
+      "originalPrice": 7900,
+      "discountedPrice": 7505,
+      "isSoldOut": false
+    },
+    {
+      "id": 5044650,
+      "name": "[범산목장] 목초먹인 유기농 우유 1000mL",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1575961965803l0.jpg",
+      "originalPrice": 6900,
+      "isSoldOut": false
+    }
+  ]
+}

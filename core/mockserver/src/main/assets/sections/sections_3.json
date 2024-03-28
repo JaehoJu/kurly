@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "title": "오늘의 신상품",
+      "id": 11,
+      "type": "horizontal",
+      "url": "section_products_11"
+    },
+    {
+      "title": "드라마 정주행을 위한 아이템",
+      "id": 12,
+      "type": "vertical",
+      "url": "section_products_12"
+    },
+    {
+      "title": "오늘의 카테고리",
+      "id": 13,
+      "type": "grid",
+      "url": "section_products_13"
+    },
+    {
+      "title": "브이로그에서 자주 보던",
+      "id": 14,
+      "type": "grid",
+      "url": "section_products_14"
+    },
+    {
+      "title": "유튜브에서 핫한",
+      "id": 15,
+      "type": "grid",
+      "url": "section_products_15"
+    }
+  ],
+  "paging": {
+    "next_page": 4
+  }
+}

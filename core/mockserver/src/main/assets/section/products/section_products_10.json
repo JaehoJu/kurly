@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "id": 5049727,
+      "name": "[서울우유] 나 100% 우유 1.8L",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1583462074699l0.jpg",
+      "originalPrice": 4990,
+      "isSoldOut": false
+    },
+    {
+      "id": 5097591,
+      "name": "[바른식] 강릉식 짬뽕순두부 찌개",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1638432666683l0.jpg",
+      "originalPrice": 7900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5031086,
+      "name": "[Kurly\u0027s] 동물복지 백색 유정란 20구",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653036887869l0.jpeg",
+      "originalPrice": 9900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5027232,
+      "name": "GAP 오이 2입",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1620886193528l0.jpg",
+      "originalPrice": 3290,
+      "isSoldOut": false
+    },
+    {
+      "id": 5043454,
+      "name": "[훕훕베이글] 시그니처 베이글 11종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/165303650410l0.jpeg",
+      "originalPrice": 2900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5052203,
+      "name": "[광화문 미진] 메밀국수 (2인분)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653036058150l0.jpeg",
+      "originalPrice": 9900,
+      "discountedPrice": 9207,
+      "isSoldOut": false
+    }
+  ]
+}

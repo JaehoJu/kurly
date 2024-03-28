@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "id": 5054074,
+      "name": "[우주] 프리미엄 손질 생새우살 200g (냉동)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653035799268l0.jpeg",
+      "originalPrice": 8400,
+      "isSoldOut": false
+    },
+    {
+      "id": 5059671,
+      "name": "[KF365] 1등급 닭볶음탕용 1kg (냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637147730946l0.jpg",
+      "originalPrice": 6900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5026926,
+      "name": "[올면] 속초식 명태 회냉면",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653039518641l0.jpeg",
+      "originalPrice": 11800,
+      "discountedPrice": 11210,
+      "isSoldOut": false
+    },
+    {
+      "id": 5035901,
+      "name": "[오모가리] 수제 김치찌개 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1555917574617l0.jpg",
+      "originalPrice": 5700,
+      "isSoldOut": false
+    },
+    {
+      "id": 5071323,
+      "name": "[풀무원] 두부텐더",
+      "image": "https://img-cf.kurly.com/shop/data/goods/165303587297l0.jpeg",
+      "originalPrice": 7980,
+      "isSoldOut": false
+    },
+    {
+      "id": 5045208,
+      "name": "[안원당] 우거지 감자탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/157914210270l0.jpg",
+      "originalPrice": 6900,
+      "isSoldOut": false
+    }
+  ]
+}

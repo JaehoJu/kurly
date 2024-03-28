@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "id": 5068907,
+      "name": "[신선설농탕] 고기 설렁탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637922288375l0.jpg",
+      "originalPrice": 7900,
+      "discountedPrice": 7347,
+      "isSoldOut": false
+    },
+    {
+      "id": 5031100,
+      "name": "양상추 1입",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1655254342192l0.jpg",
+      "originalPrice": 3490,
+      "isSoldOut": false
+    },
+    {
+      "id": 5069036,
+      "name": "[자연실록] 닭가슴살 큐브 스테이크 4종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653037613129l0.jpeg",
+      "originalPrice": 7900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5029682,
+      "name": "미미네 떡볶이",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637921364730l0.jpg",
+      "originalPrice": 5400,
+      "discountedPrice": 5130,
+      "isSoldOut": false
+    },
+    {
+      "id": 5090388,
+      "name": "[고래사어묵] 김치 우동 전골",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653039356229l0.jpg",
+      "originalPrice": 10500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5068907,
+      "name": "[신선설농탕] 고기 설렁탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637922288375l0.jpg",
+      "originalPrice": 7900,
+      "discountedPrice": 7347,
+      "isSoldOut": false
+    },
+    {
+      "id": 5053512,
+      "name": "[바븐] 완도 전복 260g 내외 (5마리) (생물)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653035940551l0.jpeg",
+      "originalPrice": 14000,
+      "discountedPrice": 12500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5071408,
+      "name": "[마이하노이] 고기폭탄쌀국수",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1621838625107l0.jpg",
+      "originalPrice": 6900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5038253,
+      "name": "[맑은물에] 참 좋은 국산 흑임자 콩물 1000mL",
+      "image": "https://img-cf.kurly.com/shop/data/goods/15651533346l0.jpg",
+      "originalPrice": 6000,
+      "isSoldOut": false
+    }
+  ]
+}

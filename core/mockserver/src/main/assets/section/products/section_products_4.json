@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "id": 5097384,
+      "name": "[고메공방] 대구식 납작만두 300g (15g x 20입)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637301571627l0.jpg",
+      "originalPrice": 4400,
+      "isSoldOut": false
+    },
+    {
+      "id": 5070691,
+      "name": "[연안식당] 부추 꼬막 비빔장",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653441921826l0.jpg",
+      "originalPrice": 6900,
+      "discountedPrice": 3900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5053977,
+      "name": "[풀무원] 식물성 지구식단 두부면 2종",
+      "image": "https://product-image.kurly.com/product/image/1cddd391-d96a-45ba-9063-ee0006c7e9f8.jpg",
+      "originalPrice": 2600,
+      "discountedPrice": 2470,
+      "isSoldOut": false
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "id": 5052615,
+      "name": "간편 삼계탕 재료 3입",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1591752341654l0.jpg",
+      "originalPrice": 4290,
+      "isSoldOut": false
+    },
+    {
+      "id": 5151393,
+      "name": "[맑은물에] 참 좋은 국산 콩물 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1656307791503l0.jpg",
+      "originalPrice": 3800,
+      "discountedPrice": 3187,
+      "isSoldOut": false
+    },
+    {
+      "id": 5034820,
+      "name": "[YOZM] 플레인그릭요거트 500g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1655704363603l0.jpg",
+      "originalPrice": 15000,
+      "discountedPrice": 13500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5007270,
+      "name": "[교토마블] 데니쉬 식빵 3종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/164820930618l0.jpeg",
+      "originalPrice": 7200,
+      "isSoldOut": false
+    },
+    {
+      "id": 5056783,
+      "name": "[강창구찹쌀진순대] 찹쌀 진순대국",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637922127131l0.jpg",
+      "originalPrice": 6000,
+      "isSoldOut": false
+    },
+    {
+      "id": 5034124,
+      "name": "[하남주꾸미] 주꾸미 볶음 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/16530347739l0.jpeg",
+      "originalPrice": 8900,
+      "discountedPrice": 8405,
+      "isSoldOut": false
+    }
+  ]
+}

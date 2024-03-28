@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": 5062328,
+      "name": "[홍대주꾸미] 주꾸미 볶음 300g (냉동)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653034699910l0.jpeg",
+      "originalPrice": 7900,
+      "discountedPrice": 6800,
+      "isSoldOut": false
+    },
+    {
+      "id": 5056791,
+      "name": "[KF365] 1+등급 무항생제 특란 20구",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637147626889l0.jpg",
+      "originalPrice": 7150,
+      "isSoldOut": false
+    },
+    {
+      "id": 5118044,
+      "name": "[Kurly\u0027s] 국산콩 두부 500g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1647247548644l0.jpg",
+      "originalPrice": 2950,
+      "isSoldOut": false
+    },
+    {
+      "id": 5029438,
+      "name": "[KF365] 방울토마토 500g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637936421263l0.jpg",
+      "originalPrice": 5480,
+      "isSoldOut": false
+    },
+    {
+      "id": 5044571,
+      "name": "[서울우유] 나 100% 우유 1000mL",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637921690477l0.jpg",
+      "originalPrice": 2710,
+      "isSoldOut": false
+    },
+    {
+      "id": 5104100,
+      "name": "[고온어다이어트] 시즌3 도시락 5종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1640066047448l0.jpg",
+      "originalPrice": 3500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5065872,
+      "name": "[더플랜] 목련 어묵 우동 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648209035915l0.jpeg",
+      "originalPrice": 4000,
+      "isSoldOut": false
+    },
+    {
+      "id": 5030557,
+      "name": "[KF365] 파프리카 2입",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637155245367l0.jpg",
+      "originalPrice": 2980,
+      "isSoldOut": false
+    },
+    {
+      "id": 5054657,
+      "name": "[KF365] 다다기오이 3입",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1656895312504l0.jpg",
+      "originalPrice": 3980,
+      "isSoldOut": false
+    }
+  ]
+}

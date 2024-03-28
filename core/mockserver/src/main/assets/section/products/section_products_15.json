@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "id": 5040710,
+      "name": "[라아부엘라니에베스] 스페인 수제 감자칩",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648202987244l0.jpg",
+      "originalPrice": 4900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5054269,
+      "name": "[마니커F\u0026G] 옛날통닭 바사삭 치킨윙 400g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653039871331l0.jpeg",
+      "originalPrice": 7980,
+      "discountedPrice": 6783,
+      "isSoldOut": false
+    },
+    {
+      "id": 5055948,
+      "name": "[브룩클린688] 호주산 목초육 치마살 구이용 300g (냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/165303917855l0.jpeg",
+      "originalPrice": 13900,
+      "discountedPrice": 11120,
+      "isSoldOut": false
+    },
+    {
+      "id": 5069137,
+      "name": "[최현석의 쵸이닷] 가리비 바질 페스토 파스타",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1648206139716l0.jpeg",
+      "originalPrice": 14800,
+      "discountedPrice": 12580,
+      "isSoldOut": false
+    },
+    {
+      "id": 5051186,
+      "name": "[강남면옥] 갈비탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1587346611469l0.jpg",
+      "originalPrice": 11900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5063758,
+      "name": "[최현석의 쵸이닷] 새우 봉골레 파스타",
+      "image": "https://img-cf.kurly.com/shop/data/goods/164820616351l0.jpeg",
+      "originalPrice": 8900,
+      "discountedPrice": 7565,
+      "isSoldOut": false
+    }
+  ]
+}

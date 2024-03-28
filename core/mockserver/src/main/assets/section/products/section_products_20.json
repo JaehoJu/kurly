@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": 5053932,
+      "name": "[한팟] 치즈 부대찌개 1858g(냉장)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653037586448l0.jpeg",
+      "originalPrice": 12500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5029467,
+      "name": "무항생제 1등급 한돈 앞다리 3종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637923109176l0.jpg",
+      "originalPrice": 5500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5063069,
+      "name": "[감자밭] 춘천 감자빵 오리지널",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038766465l0.jpeg",
+      "originalPrice": 16000,
+      "isSoldOut": false
+    },
+    {
+      "id": 5034225,
+      "name": "[워커힐] 명월관 갈비탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1548047435248l0.jpg",
+      "originalPrice": 17000,
+      "isSoldOut": false
+    },
+    {
+      "id": 5035006,
+      "name": "[바비엔] 오징어 볶음 2종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653037345236l0.jpeg",
+      "originalPrice": 13500,
+      "discountedPrice": 12555,
+      "isSoldOut": false
+    },
+    {
+      "id": 5056344,
+      "name": "[Kurly\u0027s] 간편하게 바삭, 유린기",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1615619680902l0.jpg",
+      "originalPrice": 8500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5042765,
+      "name": "[외할머니댁] 차돌 된장찌개",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1572586500506l0.jpg",
+      "originalPrice": 7500,
+      "isSoldOut": false
+    },
+    {
+      "id": 5061105,
+      "name": "[아티제] 버터롤",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038714146l0.jpeg",
+      "originalPrice": 5200,
+      "isSoldOut": false
+    },
+    {
+      "id": 5035913,
+      "name": "[진실된손맛] 뼈없는 인삼 갈비탕",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653039722341l0.jpeg",
+      "originalPrice": 8000,
+      "isSoldOut": false
+    }
+  ]
+}

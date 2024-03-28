@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "title": "주말에 필요한 상품들",
+      "id": 16,
+      "type": "vertical",
+      "url": "section_products_16"
+    },
+    {
+      "title": "마음이 든든해지는 상품들",
+      "id": 17,
+      "type": "vertical",
+      "url": "section_products_17"
+    },
+    {
+      "title": "왠지 오늘은 지르고 싶다",
+      "id": 18,
+      "type": "horizontal",
+      "url": "section_products_18"
+    },
+    {
+      "title": "만화 볼 때 필요한 상품들",
+      "id": 19,
+      "type": "vertical",
+      "url": "section_products_19"
+    },
+    {
+      "title": "사실 전부 랜덤 상품입니다",
+      "id": 20,
+      "type": "horizontal",
+      "url": "section_products_20"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "title": "어쩐지 좋은 일이 생길 것 같은 저녁",
+      "id": 6,
+      "type": "horizontal",
+      "url": "section_products_6"
+    },
+    {
+      "title": "40대 고객의 선택!",
+      "id": 7,
+      "type": "horizontal",
+      "url": "section_products_7"
+    },
+    {
+      "title": "MZ 세대의 선택!",
+      "id": 8,
+      "type": "vertical",
+      "url": "section_products_8"
+    },
+    {
+      "title": "컬리 개발자가 추천하는 상품들",
+      "id": 9,
+      "type": "vertical",
+      "url": "section_products_9"
+    },
+    {
+      "title": "MD의 추천",
+      "id": 10,
+      "type": "grid",
+      "url": "section_products_10"
+    }
+  ],
+  "paging": {
+    "next_page": 3
+  }
+}

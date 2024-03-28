@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "id": 5072940,
+      "name": "[하코야] 살얼음 동동 냉메밀 소바",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637921430646l0.jpg",
+      "originalPrice": 8900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5156742,
+      "name": "[이연복의 목란] 짬뽕 2인분 (맵기선택)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1657518987370l0.jpg",
+      "originalPrice": 13200,
+      "discountedPrice": 12936,
+      "isSoldOut": false
+    },
+    {
+      "id": 5003461,
+      "name": "친환경 양파 1kg",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653038210746l0.jpeg",
+      "originalPrice": 3290,
+      "isSoldOut": false
+    },
+    {
+      "id": 5050287,
+      "name": "[더오담] 에어프라이어 돈까스 4종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1647225233596l0.jpg",
+      "originalPrice": 3250,
+      "isSoldOut": false
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "title": "함께하면 더 좋은 상품",
+      "id": 1,
+      "type": "grid",
+      "url": "section_products_1"
+    },
+    {
+      "title": "오늘 하루 특가 세일",
+      "id": 2,
+      "type": "horizontal",
+      "url": "section_products_2"
+    },
+    {
+      "title": "이 상품 어때요?",
+      "id": 3,
+      "type": "horizontal",
+      "url": "section_products_3"
+    },
+    {
+      "title": "놓치면 안될 상품",
+      "id": 4,
+      "type": "vertical",
+      "url": "section_products_4"
+    },
+    {
+      "title": "이거 사려고 가입했다!!",
+      "id": 5,
+      "type": "vertical",
+      "url": "section_products_5"
+    }
+  ],
+  "paging": {
+    "next_page": 2
+  }
+}

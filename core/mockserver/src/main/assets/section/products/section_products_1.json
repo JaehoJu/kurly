@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "id": 5063110,
+      "name": "[연세우유 x 마켓컬리] 전용목장우유 900mL",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637154205701l0.jpg",
+      "originalPrice": 2070,
+      "discountedPrice": 1800,
+      "isSoldOut": false
+    },
+    {
+      "id": 5053329,
+      "name": "[Kurly\u0027s] 국산콩 두부 300g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/164730389977l0.jpg",
+      "originalPrice": 1900,
+      "isSoldOut": false
+    },
+    {
+      "id": 5031441,
+      "name": "[KF365] DOLE 실속 바나나 1kg (필리핀)",
+      "image": "https://img-cf.kurly.com/shop/data/goods/165303902534l0.jpg",
+      "originalPrice": 3700,
+      "isSoldOut": false
+    },
+    {
+      "id": 5075630,
+      "name": "[폴 바셋] 바리스타 돌체라떼 330mL",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653041332575l0.jpg",
+      "originalPrice": 3400,
+      "isSoldOut": false
+    },
+    {
+      "id": 5027449,
+      "name": "[남향푸드또띠아] 간편 간식 브리또 13종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1649899738429l0.jpg",
+      "originalPrice": 3200,
+      "isSoldOut": false
+    },
+    {
+      "id": 5030559,
+      "name": "[KF365] 애호박 1개",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637154502152l0.jpg",
+      "originalPrice": 1980,
+      "discountedPrice": 1500,
+      "isSoldOut": false
+    }
+  ]
+}

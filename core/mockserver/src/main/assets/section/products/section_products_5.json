@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "id": 5027320,
+      "name": "깐대파 500g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653037895339l0.jpeg",
+      "originalPrice": 3490,
+      "isSoldOut": false
+    },
+    {
+      "id": 5002697,
+      "name": "[픽어베이글] 베이글 7종",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637921352140l0.jpeg",
+      "originalPrice": 2800,
+      "isSoldOut": false
+    },
+    {
+      "id": 5061776,
+      "name": "[금미옥] 쌀 떡볶이",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653035375221l0.jpeg",
+      "originalPrice": 5100,
+      "isSoldOut": false
+    },
+    {
+      "id": 5088325,
+      "name": "[전주 베테랑] 칼국수",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1634631825670l0.jpg",
+      "originalPrice": 5600,
+      "discountedPrice": 4760,
+      "isSoldOut": false
+    },
+    {
+      "id": 5027318,
+      "name": "[KF365] 깐마늘 200g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1637155702386l0.jpg",
+      "originalPrice": 3780,
+      "isSoldOut": false
+    },
+    {
+      "id": 5026539,
+      "name": "[YOZM] 플레인그릭요거트 100g",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1655703620192l0.jpg",
+      "originalPrice": 3900,
+      "discountedPrice": 3510,
+      "isSoldOut": false
+    },
+    {
+      "id": 5069129,
+      "name": "[풀무원] 롤 유부초밥",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1653036463990l0.jpeg",
+      "originalPrice": 6380,
+      "isSoldOut": false
+    },
+    {
+      "id": 5037794,
+      "name": "[부침명장] 한입아삭 김치전",
+      "image": "https://img-cf.kurly.com/shop/data/goods/1562306917228l0.jpg",
+      "originalPrice": 4370,
+      "discountedPrice": 3933,
+      "isSoldOut": false
+    }
+  ]
+}
