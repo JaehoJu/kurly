@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import javax.inject.Inject
 
-class GetSectionsUseCase {
+class GetSectionsUseCase @Inject constructor() {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     operator fun invoke(): Flow<List<Section>> {
