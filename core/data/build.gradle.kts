@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jj.kurly.core.domain"
+    namespace = "com.jj.kurly.core.data"
     compileSdk = 34
 
     defaultConfig {
@@ -36,8 +36,7 @@ android {
 
 dependencies {
 
-    api(project(":core:model"))
-    api(project(":core:data"))
+    implementation(project(":core:model"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
