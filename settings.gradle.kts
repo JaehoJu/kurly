@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 rootProject.name = "kurly"
 include(":app")
 include(":feature:home")
+include(":core:domain")
+include(":core:model")

@@ -1,5 +1,6 @@
-package com.jj.kurly.feature.home
+package com.jj.kurly.core.model
 
+import com.jj.kurly.core.model.Product
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

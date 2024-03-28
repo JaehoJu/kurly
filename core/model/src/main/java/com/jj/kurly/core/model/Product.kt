@@ -1,4 +1,4 @@
-package com.jj.kurly.feature.home
+package com.jj.kurly.core.model
 
 data class Product(
     val id: Int,
@@ -12,4 +12,6 @@ data class Product(
     val discountRate: Int = discountedPrice?.let {
         (originalPrice - it) * 100 / originalPrice
     } ?: 0
+
+    val isDiscounted = discountedPrice != null && discountedPrice < originalPrice
 }

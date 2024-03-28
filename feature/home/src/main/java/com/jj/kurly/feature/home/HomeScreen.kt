@@ -47,6 +47,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.jj.kurly.core.model.Product
+import com.jj.kurly.core.model.Section
+import com.jj.kurly.core.model.SectionType
 
 @Composable
 internal fun HomeScreenRoute(
@@ -357,11 +360,8 @@ private fun ProductPriceOneLine(
     product: Product,
     modifier: Modifier = Modifier
 ) {
-    val isDiscounted = product.discountedPrice != null
-            && product.discountedPrice < product.originalPrice
-
     Row(modifier = modifier) {
-        if (isDiscounted) {
+        if (product.isDiscounted) {
             DiscountRate(
                 discountRate = product.discountRate,
                 modifier = Modifier.alignByBaseline()
@@ -372,7 +372,7 @@ private fun ProductPriceOneLine(
             salePrice = product.discountedPrice ?: product.originalPrice,
             modifier = Modifier.alignByBaseline()
         )
-        if (isDiscounted) {
+        if (product.isDiscounted) {
             Spacer(modifier = Modifier.width(2.dp))
             OriginalPrice(
                 originalPrice = product.originalPrice,
@@ -387,12 +387,9 @@ private fun ProductPriceTwoLines(
     product: Product,
     modifier: Modifier = Modifier
 ) {
-    val isDiscounted = product.discountedPrice != null
-            && product.discountedPrice < product.originalPrice
-
     Column(modifier = modifier) {
         Row {
-            if (isDiscounted) {
+            if (product.isDiscounted) {
                 DiscountRate(
                     discountRate = product.discountRate,
                     modifier = Modifier.alignByBaseline()
@@ -404,7 +401,7 @@ private fun ProductPriceTwoLines(
                 modifier = Modifier.alignByBaseline()
             )
         }
-        if (isDiscounted) {
+        if (product.isDiscounted) {
             OriginalPrice(
                 originalPrice = product.originalPrice
             )

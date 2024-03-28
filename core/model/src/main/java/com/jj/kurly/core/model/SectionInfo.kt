@@ -1,4 +1,4 @@
-package com.jj.kurly.feature.home
+package com.jj.kurly.core.model
 
 data class SectionInfo(
     val title: String,

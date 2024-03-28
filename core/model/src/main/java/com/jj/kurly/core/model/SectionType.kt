@@ -1,4 +1,4 @@
-package com.jj.kurly.feature.home
+package com.jj.kurly.core.model
 
 enum class SectionType {
     VERTICAL, HORIZONTAL, GRID
