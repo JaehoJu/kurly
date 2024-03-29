@@ -18,6 +18,10 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.pullrefresh.PullRefreshIndicator
+import androidx.compose.material.pullrefresh.pullRefresh
+import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
@@ -26,6 +30,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -59,18 +66,33 @@ internal fun HomeScreenRoute(
     HomeScreen(
         homeUiState = homeUiState,
         onWishButtonClick = viewModel::wishProduct,
+        onRefresh = viewModel::refresh,
         modifier = modifier
     )
 }
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun HomeScreen(
     homeUiState: HomeUiState,
     onWishButtonClick: (Int, Boolean) -> Unit,
+    onRefresh: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var refreshing by remember { mutableStateOf(false) }
+
+    fun refresh() {
+        refreshing = true
+        onRefresh()
+        refreshing = false
+    }
+
+    val state = rememberPullRefreshState(refreshing, ::refresh)
+
     Box(
-        modifier = modifier.semantics { contentDescription = "Start Screen" }
+        modifier = modifier
+            .semantics { contentDescription = "Start Screen" }
+            .pullRefresh(state)
     ) {
         when (homeUiState) {
             is HomeUiState.Loading -> {
@@ -78,14 +100,18 @@ internal fun HomeScreen(
             }
 
             is HomeUiState.Success -> {
-                LazyColumn {
-                    sections(
-                        sections = homeUiState.sections,
-                        onWishButtonClick = onWishButtonClick
-                    )
+                LazyColumn(Modifier.fillMaxSize()) {
+                    if (!refreshing) {
+                        sections(
+                            sections = homeUiState.sections,
+                            onWishButtonClick = onWishButtonClick
+                        )
+                    }
                 }
             }
         }
+
+        PullRefreshIndicator(refreshing, state, Modifier.align(Alignment.TopCenter))
     }
 }
 
