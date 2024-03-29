@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jj.kurly.core.data"
+    namespace = "com.jj.kurly.core.datastore"
     compileSdk = 34
 
     defaultConfig {
@@ -35,10 +35,6 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":core:model"))
-    implementation(project(":core:network"))
-    implementation(project(":core:datastore"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

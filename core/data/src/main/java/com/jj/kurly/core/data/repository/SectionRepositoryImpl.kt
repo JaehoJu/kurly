@@ -4,8 +4,8 @@ import com.jj.kurly.core.data.model.asDomainModel
 import com.jj.kurly.core.model.Product
 import com.jj.kurly.core.model.SectionInfo
 import com.jj.kurly.core.network.NetworkDataSource
-import com.jj.kurly.core.network.model.SectionDto
 import com.jj.kurly.core.network.model.ProductDto
+import com.jj.kurly.core.network.model.SectionDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
