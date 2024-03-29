@@ -12,8 +12,8 @@ internal class UserDataRepositoryImpl @Inject constructor(
     private val preferencesDataStore: PreferencesDataStore
 ) : UserDataRepository {
 
-    override val userData: Flow<UserData>
-        get() = preferencesDataStore.userData.map(UserDataDto::asDomainModel)
+    override val userData: Flow<UserData> =
+        preferencesDataStore.userData.map(UserDataDto::asDomainModel)
 
     override suspend fun setProductWished(productId: Int, isWished: Boolean) {
         preferencesDataStore.setProductWished(productId = productId, isWished = isWished)

@@ -1,7 +1,5 @@
 package com.jj.kurly.feature.home
 
-import com.jj.kurly.core.domain.GetSectionsUseCase
-import com.jj.kurly.core.domain.SetProductWishedUseCase
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test

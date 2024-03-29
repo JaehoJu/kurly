@@ -19,14 +19,12 @@ class PreferencesDataStore @Inject constructor(
 
     suspend fun setProductWished(productId: Int, isWished: Boolean) {
         userPreferences.updateData {
-            if (isWished) {
-                it.toBuilder()
-                    .putWishedProductIds(productId, true)
-                    .build()
-            } else {
-                it.toBuilder()
-                    .removeWishedProductIds(productId)
-                    .build()
+            it.copy {
+                if (isWished) {
+                    wishedProductIds.put(productId, true)
+                } else {
+                    wishedProductIds.remove(productId)
+                }
             }
         }
     }

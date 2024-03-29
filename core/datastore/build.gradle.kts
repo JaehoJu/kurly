@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.googleDaggerHiltAndroid)
-    id("com.google.protobuf") version "0.9.1"
+    alias(libs.plugins.protobuf)
 }
 
 android {
@@ -41,7 +41,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.datastore)
-    implementation(libs.protobuf.javalite)
+    implementation(libs.protobuf.kotlin.lite)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -55,7 +55,7 @@ kapt {
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.25.0"
+        artifact = libs.protobuf.protoc.get().toString()
     }
 
     // Generates the java Protobuf-lite code for the Protobufs in this project. See
@@ -65,6 +65,9 @@ protobuf {
         all().forEach { task ->
             task.builtins {
                 register("java") {
+                    option("lite")
+                }
+                register("kotlin") {
                     option("lite")
                 }
             }
