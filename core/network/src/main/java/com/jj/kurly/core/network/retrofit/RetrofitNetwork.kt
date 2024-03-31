@@ -1,9 +1,9 @@
 package com.jj.kurly.core.network.retrofit
 
 import com.jj.kurly.core.network.NetworkDataSource
+import com.jj.kurly.core.network.model.ProductDto
 import com.jj.kurly.core.network.model.ResponseDto
 import com.jj.kurly.core.network.model.SectionDto
-import com.jj.kurly.core.network.model.ProductDto
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -28,8 +28,8 @@ internal class RetrofitNetwork @Inject constructor(
         .build()
         .create(NetworkApi::class.java)
 
-    override suspend fun getSections(): List<SectionDto> {
-        return networkApi.getSections().data
+    override suspend fun getSections(page: Int): ResponseDto<List<SectionDto>> {
+        return networkApi.getSections(page)
     }
 
     override suspend fun getSectionProducts(sectionId: Int): List<ProductDto> {
@@ -44,7 +44,9 @@ internal class RetrofitNetwork @Inject constructor(
 private interface NetworkApi {
 
     @GET("sections")
-    suspend fun getSections(): ResponseDto<List<SectionDto>>
+    suspend fun getSections(
+        @Query("page") page: Int?
+    ): ResponseDto<List<SectionDto>>
 
 
     @GET("section/products")

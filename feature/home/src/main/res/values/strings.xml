@@ -2,4 +2,6 @@
 <resources>
     <string name="price">%,d원</string>
     <string name="discount_rate">%d%%</string>
+    <string name="home_refresh_error">Error</string>
+    <string name="home_append_error">Error</string>
 </resources>

@@ -49,7 +49,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import com.jj.kurly.core.model.Product
 import com.jj.kurly.core.model.Section
@@ -61,12 +63,12 @@ internal fun HomeScreenRoute(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
-    val homeUiState by viewModel.homeUiState.collectAsStateWithLifecycle()
+    val sectionPagingItems = viewModel.sectionPagingData.collectAsLazyPagingItems()
 
     HomeScreen(
-        homeUiState = homeUiState,
+        sectionPagingItems = sectionPagingItems,
         onWishButtonClick = viewModel::wishProduct,
-        onRefresh = viewModel::refresh,
+        onRefresh = { sectionPagingItems.refresh() },
         modifier = modifier
     )
 }
@@ -74,7 +76,7 @@ internal fun HomeScreenRoute(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun HomeScreen(
-    homeUiState: HomeUiState,
+    sectionPagingItems: LazyPagingItems<Section>,
     onWishButtonClick: (Int, Boolean) -> Unit,
     onRefresh: () -> Unit,
     modifier: Modifier = Modifier
@@ -94,21 +96,25 @@ internal fun HomeScreen(
             .semantics { contentDescription = "Start Screen" }
             .pullRefresh(state)
     ) {
-        when (homeUiState) {
-            is HomeUiState.Loading -> {
+        when (sectionPagingItems.loadState.refresh) {
+            is LoadState.Loading ->
                 Loading()
-            }
 
-            is HomeUiState.Success -> {
-                LazyColumn(Modifier.fillMaxSize()) {
+            is LoadState.NotLoading ->
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(bottom = 64.dp)
+                ) {
                     if (!refreshing) {
                         sections(
-                            sections = homeUiState.sections,
+                            sectionPagingItems = sectionPagingItems,
                             onWishButtonClick = onWishButtonClick
                         )
                     }
                 }
-            }
+
+            is LoadState.Error ->
+                Text(text = stringResource(id = R.string.home_refresh_error))
         }
 
         PullRefreshIndicator(refreshing, state, Modifier.align(Alignment.TopCenter))
@@ -116,16 +122,28 @@ internal fun HomeScreen(
 }
 
 private fun LazyListScope.sections(
-    sections: List<Section>,
+    sectionPagingItems: LazyPagingItems<Section>,
     onWishButtonClick: (Int, Boolean) -> Unit
 ) {
-    items(sections) { section ->
-        Section(
-            section = section,
-            onWishButtonClick = onWishButtonClick
-        )
+    items(sectionPagingItems.itemCount) {
+        sectionPagingItems[it]?.let { section ->
+            Section(
+                section = section,
+                onWishButtonClick = onWishButtonClick
+            )
 
-        Divider(modifier = Modifier.padding(horizontal = 16.dp))
+            Divider(modifier = Modifier.padding(horizontal = 16.dp))
+        }
+    }
+
+    when (sectionPagingItems.loadState.append) {
+        is LoadState.Loading ->
+            item { Loading(modifier = Modifier.padding(32.dp)) }
+
+        is LoadState.Error ->
+            item { Text(text = stringResource(R.string.home_append_error)) }
+
+        is LoadState.NotLoading -> Unit
     }
 }
 
